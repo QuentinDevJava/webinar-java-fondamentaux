@@ -9,16 +9,24 @@ public class Application {
         String fileToRead = "longText";
         String completePath = path + fileToRead;
 
-        //TODO écrire le code pour lire ici
-        //il faut lire le completePath
-        try{
-
-        }catch (){}
-    }
+        BufferedReader reader = new BufferedReader(fileReader);
+		try{	
+			// une fonction à essayer pouvant générer une erreur
+			String line = reader.readLine();
+			
+			while (line != null) {
+				// affichage de la ligne
+				System.out.println(line);
+				// lecture de la prochaine ligne
+				line = reader.readLine();
+			}
+			reader.close();
+        }catch(Exception e){
+            System.out.println("Erreur Lors de la lecture du fichier .txt");
+        };
 
     public static void main(String[] args) throws IOException {
         Application application = new Application();
-
         application.readFile();
     }
 }
